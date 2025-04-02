@@ -5,8 +5,10 @@
 
     <string name="imagen_description">Portada de la serie %s</string>
 
+    <string name="sumary">Resumen:></string>
+
     <string name="generos">Generos: %s</string>
     <string name="estreno">Estreno: %s</string>
     <string name="pais">País: %s</string>
-    <string name="idiomas">Idiomas: %s</string>
+    <string name="idioma">Idioma: %s</string>
 </resources>

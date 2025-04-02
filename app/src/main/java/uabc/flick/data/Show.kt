@@ -1,46 +1,69 @@
 package uabc.flick.data
 
-import android.content.Context
-import com.squareup.moshi.Json
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.Types
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-
 data class Show(
-    val id: Int,
-    val url: String,
-    val name: String,
-    val type: String,
-    val language: String,
-    val genres: List<String>,
-    val status: String,
-    val runtime: Int,
-    val averageRuntime: Int,
-    val premiered: String,
-    val ended: String,
-    val officialSite: String,
-    val schedule: Json,
-    val rating: Json,
-    val weight: Int,
-    val network: Json,
-    val webChannel: String,
-    val dvdCountry: String,
-    val externals: Json,
-    val image: Json,
-    val summary: String,
-    val updated: Long,
-    val _links: Json,
+    val id: Int = -1,
+    val url: String = "",
+    val name: String = "Desconocido",
+    val type: String = "",
+    val language: String = "",
+    val genres: List<String> = emptyList(),
+    val status: String = "",
+    val runtime: Int = 0,
+    val averageRuntime: Int = 0,
+    val premiered: String = "",
+    val ended: String? = null,
+    val officialSite: String? = null,
+    val schedule: Schedule = Schedule(),
+    val rating: Rating = Rating(),
+    val weight: Int = 0,
+    val network: Network = Network(),
+    val webChannel: String? = null,
+    val dvdCountry: String? = null,
+    val externals: Externals = Externals(),
+    val image: Image = Image(),
+    val summary: String = "",
+    val updated: Long = 0,
+    val _links: Links = Links()
 )
 
-// Función para cargar preguntas desde los assets usando Moshi
-fun loadFromAssets(context: Context): List<Show> {
-    val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
-    val listType = Types.newParameterizedType(List::class.java, Show::class.java)
-    val jsonAdapter = moshi.adapter<List<Show>>(listType)
+data class Schedule(
+    val time: String? = null,
+    val days: List<String> = emptyList()
+)
 
-    val jsonString = context.assets.open("shows.json").bufferedReader().use {
-        it.readText()
-    }
+data class Rating(
+    val average: Double? = null
+)
 
-    return jsonAdapter.fromJson(jsonString) ?: emptyList()
-}
+data class Network(
+    val id: Int = -1,
+    val name: String = "",
+    val country: Country = Country(),
+    val officialSite: String? = null
+)
+
+data class Country(
+    val name: String = "",
+    val code: String = "",
+    val timezone: String = ""
+)
+
+data class Externals(
+    val imdb: String? = null,
+    val thetvdb: Int? = null,
+    val tvrage: Int? = null
+)
+
+data class Image(
+    val medium: String = "",
+    val original: String = ""
+)
+
+data class Links(
+    val self: Link = Link(),
+    val previousepisode: Link = Link()
+)
+
+data class Link(
+    val href: String = ""
+)

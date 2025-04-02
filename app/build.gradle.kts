@@ -41,6 +41,7 @@ android {
 
 dependencies {
     implementation("io.coil-kt:coil-compose:2.6.0")
+    implementation("androidx.compose.ui:ui-text-google-fonts:1.7.8") // Verifica la última versión
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
