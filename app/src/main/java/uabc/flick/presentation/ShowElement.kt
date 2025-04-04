@@ -78,7 +78,7 @@ fun ShowElement(
                 ) {
                     Text(
                         text = show.rating.average.toString(),
-                        style = MaterialTheme.typography.labelSmall.copy(fontSize = 10.sp),
+                        style = MaterialTheme.typography.labelLarge,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.padding(3.dp)
                     )

@@ -1,14 +1,13 @@
 <resources>
     <string name="app_name">Flick</string>
     <string name="list_top_bar">Shows</string>
-    <string name="resumen">Resumen</string>
 
-    <string name="imagen_description">Portada de la serie %s</string>
+    <string name="imagen_description">Cover of the series %s</string>
 
-    <string name="sumary">Resumen:</string>
+    <string name="resumen">Summary:</string>
 
-    <string name="generos">Generos: %s</string>
-    <string name="estreno">Estreno: %s</string>
-    <string name="pais">País: %s</string>
-    <string name="idioma">Idioma: %s</string>
+    <string name="generos">Genres: %s</string>
+    <string name="estreno">Release: %s</string>
+    <string name="pais">Country: %s</string>
+    <string name="idioma">Language: %s</string>
 </resources>
