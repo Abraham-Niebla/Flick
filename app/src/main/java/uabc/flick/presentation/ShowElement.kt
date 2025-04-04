@@ -34,13 +34,13 @@ fun ShowElement(
 ) {
     ElevatedCard(
         modifier = Modifier
-            .width(160.dp) // Ancho de la carta
+            .width(160.dp)
             .padding(8.dp),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.secondaryContainer // Se adapta al tema
+            containerColor = MaterialTheme.colorScheme.secondaryContainer
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp), // Sombra adaptable
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         onClick = {
             val intent = Intent(context, ShowDetailsActivity::class.java)
             intent.putExtra("showID", show.id)
@@ -61,7 +61,7 @@ fun ShowElement(
                     contentDescription = stringResource(R.string.imagen_description, show.name),
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
-                        .height(200.dp) // Ajusta la altura de la imagen
+                        .height(200.dp)
                         .fillMaxWidth()
                 )
 
@@ -71,7 +71,7 @@ fun ShowElement(
                         .align(Alignment.TopStart)
                         .padding(5.dp)
                         .clip(RoundedCornerShape(4.dp))
-                        .background(MaterialTheme.colorScheme.surfaceVariant, shape =
+                        .background(MaterialTheme.colorScheme.secondaryContainer, shape =
                                                 RoundedCornerShape(1.dp))
                 ) {
                     Text(

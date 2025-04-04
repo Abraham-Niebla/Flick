@@ -8,7 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import uabc.flick.data.*
-import uabc.flick.presentation.ShowDetails
+import uabc.flick.presentation.*
 
 class ShowDetailsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +24,7 @@ class ShowDetailsActivity : ComponentActivity() {
                 modifier = Modifier.fillMaxSize(),
                 color = MaterialTheme.colorScheme.background
             ) {
-                ShowDetails(show)
+                ShowDetailsScreen(show, this)
             }
         }
     }

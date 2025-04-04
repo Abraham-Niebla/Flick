@@ -23,7 +23,7 @@ import uabc.flick.data.Show
 @Composable
 fun ShowList(showsData: List<Show>, modifier: Modifier) {
     Column (modifier = modifier) {
-        // Mueve el título fuera de LazyVerticalGrid
+        // Titulo de app
         Text(
             text = stringResource(R.string.list_top_bar),
             style = MaterialTheme.typography.titleLarge,
@@ -35,6 +35,7 @@ fun ShowList(showsData: List<Show>, modifier: Modifier) {
             fontWeight = FontWeight.Bold
         )
 
+        // Lista de shows
         LazyVerticalGrid(
             columns = GridCells.Fixed(2), // Establece dos columnas
             contentPadding = PaddingValues(horizontal = 16.dp),
