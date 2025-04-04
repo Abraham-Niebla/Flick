@@ -1,7 +1,6 @@
 package uabc.flick.presentation
 
 import android.content.Intent
-import android.os.Bundle
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,7 +14,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.*
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
@@ -31,16 +29,14 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.activity.ComponentActivity
 import android.app.Activity
-import androidx.activity.compose.setContent
 import coil.compose.AsyncImage
 import uabc.flick.R
 import uabc.flick.data.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ShowDetailsScreen(show: Show, activity: Activity) {
+fun ShowDetails(show: Show, activity: Activity, modifier: Modifier) {
     val context = LocalContext.current
 
     Column(modifier = Modifier.fillMaxSize()) {
@@ -56,30 +52,26 @@ fun ShowDetailsScreen(show: Show, activity: Activity) {
         Row(modifier = Modifier.fillMaxWidth().padding(8.dp)) {
             ElevatedCard(
                 modifier = Modifier.weight(1f),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surface
-                )
             ) {
                 Box(contentAlignment = Alignment.TopStart) {
                     AsyncImage(
                         model = show.image.original,
                         contentDescription = stringResource(R.string.imagen_description, show.name),
-                        contentScale = ContentScale.Crop,
-                        modifier = Modifier.fillMaxWidth().height(200.dp)
                     )
                     Box(
                         modifier = Modifier
+                            .padding(5.dp)
                             .background(
-                                MaterialTheme.colorScheme.surfaceVariant,
-                                shape = RoundedCornerShape(4.dp)
+                                MaterialTheme.colorScheme.secondaryContainer, shape =
+                                    RoundedCornerShape(1.dp)
                             )
-                            .padding(4.dp)
                     ) {
                         Text(text = show.rating.average.toString())
                     }
                 }
             }
 
+            //Información del Show
             Column(modifier = Modifier.weight(1f).padding(8.dp)) {
                 Text(text = show.name, style = MaterialTheme.typography.bodyLarge)
                 Text(text = stringResource(R.string.generos, show.genres.joinToString(", ")))
@@ -90,8 +82,17 @@ fun ShowDetailsScreen(show: Show, activity: Activity) {
         }
 
         HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
-        Text(text = stringResource(R.string.sumary), style = MaterialTheme.typography.labelLarge)
-        Text(text = show.summary.replace(Regex("<.*?>"), ""), style = MaterialTheme.typography.bodySmall)
+
+        // Resumen
+        Column(modifier = Modifier.padding(horizontal = 8.dp)){
+            Text(text = stringResource(R.string.sumary),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant)
+
+            Text(text = show.summary.replace(Regex("<.*?>"), ""),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant)
+        }
 
         Spacer(modifier = Modifier.height(16.dp))
 

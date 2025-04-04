@@ -71,8 +71,10 @@ fun ShowElement(
                         .align(Alignment.TopStart)
                         .padding(5.dp)
                         .clip(RoundedCornerShape(4.dp))
-                        .background(MaterialTheme.colorScheme.secondaryContainer, shape =
-                                                RoundedCornerShape(1.dp))
+                        .background(
+                            MaterialTheme.colorScheme.secondaryContainer, shape =
+                                RoundedCornerShape(1.dp)
+                        )
                 ) {
                     Text(
                         text = show.rating.average.toString(),
@@ -85,6 +87,7 @@ fun ShowElement(
 
             // Título de la serie
             Text(
+//                text = "${show.id} - ${show.name}",
                 text = show.name,
                 modifier = Modifier
                     .padding(horizontal = 8.dp, vertical = 4.dp),
