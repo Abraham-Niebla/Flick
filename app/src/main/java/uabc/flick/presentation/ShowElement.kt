@@ -79,7 +79,7 @@ fun ShowElement(
                     Text(
                         text = show.rating.average.toString(),
                         style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer,
                         modifier = Modifier.padding(3.dp)
                     )
                 }
@@ -92,7 +92,7 @@ fun ShowElement(
                 modifier = Modifier
                     .padding(horizontal = 8.dp, vertical = 4.dp),
                 style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurface // Texto adaptable
+                color = MaterialTheme.colorScheme.onPrimaryContainer // Texto adaptable
             )
 
             // Géneros de la serie
@@ -101,7 +101,7 @@ fun ShowElement(
                 modifier = Modifier
                     .padding(horizontal = 8.dp, vertical = 4.dp),
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
                 maxLines = 1, // Limita a una línea
                 overflow = TextOverflow.Ellipsis // Agrega "..." si se excede
             )

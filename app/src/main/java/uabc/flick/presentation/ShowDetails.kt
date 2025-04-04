@@ -74,7 +74,7 @@ fun ShowDetails(show: Show, activity: Activity, modifier: Modifier) {
                         Text(
                             text = show.rating.average.toString(),
                             style = MaterialTheme.typography.labelLarge,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            color = MaterialTheme.colorScheme.onSecondaryContainer,
                             modifier = Modifier.padding(3.dp)
                         )
                     }
@@ -84,7 +84,7 @@ fun ShowDetails(show: Show, activity: Activity, modifier: Modifier) {
             //Información del Show
             Column(modifier = Modifier.weight(1f).padding(8.dp).padding(start = 3.dp)) {
                 val detailsStyle = MaterialTheme.typography.bodyMedium
-                val detailsColor = MaterialTheme.colorScheme.onSurfaceVariant
+                val detailsColor = MaterialTheme.colorScheme.primary
                 val detailsModifier = Modifier.padding(top = 6.dp)
 
                 Text(
@@ -132,14 +132,15 @@ fun ShowDetails(show: Show, activity: Activity, modifier: Modifier) {
 
         // Resumen
         Column(modifier = Modifier.padding(horizontal = 10.dp)){
+            val summaryColor = MaterialTheme.colorScheme.primary
             Text(text = stringResource(R.string.resumen),
                 style = MaterialTheme.typography.titleLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                color = summaryColor,
                 modifier = Modifier.padding(top = 6.dp))
 
             Text(text = show.summary.replace(Regex("<.*?>"), ""),
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                color = summaryColor,
                 modifier = Modifier.padding(top = 6.dp))
         }
 

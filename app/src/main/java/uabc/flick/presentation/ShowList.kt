@@ -28,7 +28,7 @@ fun ShowList(showsData: List<Show>, modifier: Modifier) {
             text = stringResource(R.string.list_top_bar),
             style = MaterialTheme.typography.titleLarge,
             modifier = Modifier
-                .background(MaterialTheme.colorScheme.background)
+                .background(MaterialTheme.colorScheme.surface)
                 .padding(16.dp)
                 .fillMaxWidth(),
             textAlign = TextAlign.Center,
@@ -39,7 +39,7 @@ fun ShowList(showsData: List<Show>, modifier: Modifier) {
         LazyVerticalGrid(
             columns = GridCells.Fixed(2), // Establece dos columnas
             contentPadding = PaddingValues(horizontal = 16.dp),
-            modifier = Modifier
+            modifier = Modifier.background(MaterialTheme.colorScheme.surface)
         ) {
             items(showsData) { show ->
                 ShowElement(show, LocalContext.current)
